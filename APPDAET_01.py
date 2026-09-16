@@ -1,17 +1,57 @@
-#september 7, 2026
+num1 = 0
+num2 = 0
+operator = ""
 
-print("Ready for Python!")
+def add(a, b):
+    return a + b
 
-print("Hello World")
+def subtract(a, b):
+    return a - b
 
-# variables
-name = "Oscar the Grouch"
-age = 51
-wealth = 222000444666.56
-is_wealthy = True
+def multiply(a, b):
+    return a * b
 
-print(type(name))
-print(type(age))
-print(type(wealth))
-print(type(is_wealthy))
+def divide(a, b):
+    if b == 0:
+        return "Error: Division by zero is not allowed."
+    return a / b
 
+print("Simple Calculator")
+print("Available operations: +, -, *, /")
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
+operator = input("Enter the operation (+, -, *, /): ")
+
+if operator == "+":
+    result = add(num1, num2)
+elif operator == "-":
+    result = subtract(num1, num2)
+elif operator == "*":
+    result = multiply(num1, num2)
+elif operator == "/":
+    result = divide(num1, num2)
+else:
+    result = "Error: Invalid operation."
+
+print("Result:", result)
+
+resultStorage = result
+
+print("Would you like to continue the operation? (yes/no)")
+continue_operation = input().lower()
+if continue_operation == "yes":
+    num3 = float(input("Enter the next number: "))
+    operator2 = input("Enter the next operation (+, -, *, /): ")
+
+    if operator2 == "+":
+        resultStorage = add(resultStorage, num3)
+    elif operator2 == "-":
+        resultStorage = subtract(resultStorage, num3)
+    elif operator2 == "*":
+        resultStorage = multiply(resultStorage, num3)
+    elif operator2 == "/":
+        resultStorage = divide(resultStorage, num3)
+    else:
+        print("Error: Invalid operation.")
+    
+    print("New Result:", resultStorage)
